@@ -6,27 +6,28 @@ ____
 + Сопровождение словаря с помощью кнопок в верхнем меню программы.
 + Вывод подсказок (автодополнений) к словам в соответствии со сформированным словарём.
 ___
-#### Используемые технологии:
-:white_check_mark: ***Visual Studio 2022*** </br>
-:white_check_mark:   ***Windows Forms***</br>
-:white_check_mark:   ***ООП***</br>
-:white_check_mark:  ***ADO.net***</br>
-:white_check_mark:   ***SQLite***</br>
-:white_check_mark:   ***LINQ***
+ ####  Используемые технологии: 
+:heavy_check_mark: ***Visual Studio 2022*** </br>
+:heavy_check_mark:   ***Windows Forms***</br>
+:heavy_check_mark:   ***ООП***</br>
+:heavy_check_mark:  ***ADO.net***</br>
+:heavy_check_mark:   ***SQLite***</br>
+:heavy_check_mark:   ***LINQ***
 
-___
- ## <span style="font-size:22px;font-weight:bold;"> 1. Создание словаря</span>
+</br>
 
-  #### Условия создания словаря:
+ ##  1.Создание словаря :hammer:
+
+ #### Условия создания словаря:
    * Поле ввода не должно быть пустым
  #### Результат:
   * Формирование нового словаря по входящему файлу  
 
 <img src="ReadmeContent/Create.gif" Alt="Create">
 
-____
+</br>
 
-## <span style="font-size:22px;font-weight:bold;">2. Обновление словаря</span>
+## <span style="font-size:22px;font-weight:bold;">2. Обновление словаря</span> :recycle:
 
 #### Условия добавления в словарь:
   * Минимальное число символов, воспринимаемых приложением как слово – 3.
@@ -37,8 +38,9 @@ ____
 
 <img src="ReadmeContent/Refresh.gif" Alt="Refresh">
 
-____
-## <span style="font-size:22px;font-weight:bold;">3. Очистка  словаря</span>
+</br>
+
+## <span style="font-size:22px;font-weight:bold;">3. Очистка  словаря</span> :x:
  
  #### Результат:
    * Удаление всех данных словаря.
