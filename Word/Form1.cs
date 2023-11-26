@@ -31,7 +31,8 @@ namespace Word
         List<string> tmpListWords = new List<string>();
         private void Form1_Load(object sender, EventArgs e)
         {
-           // BuildAutoCompleateMenu();                    
+           
+            BuildAutoCompleateMenu();                    
         }
         //Добавление данных в  Меню автозаполнения
         private void BuildAutoCompleateMenu()
@@ -92,23 +93,29 @@ namespace Word
         }
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            KeyPresValue += e.KeyChar.ToString();
-            search(KeyPresValue);          
-            if (textBox1.TextLength != 0 && CountSpace()==1)
+            try
             {
-                if (e.KeyChar == '.')
-                {                     
-                    textBox1.Text = textBox1.Text.TrimEnd();
-                    textBox1.Select(textBox1.TextLength, textBox1.TextLength);                  
-                    BuildAutoCompleateMenu();                   
-                }
-                if (e.KeyChar == ',')
+                KeyPresValue += e.KeyChar.ToString();
+                search(KeyPresValue);
+                if (textBox1.TextLength != 0 && CountSpace() == 1)
                 {
-                    textBox1.Text = textBox1.Text.TrimEnd();
-                    textBox1.Select(textBox1.TextLength, textBox1.TextLength);                                  
-                    BuildAutoCompleateMenu();
+                    if (e.KeyChar == '.')
+                    {
+                        textBox1.Text = textBox1.Text.TrimEnd();
+                        textBox1.Select(textBox1.TextLength, textBox1.TextLength);
+                        BuildAutoCompleateMenu();
+                    }
+                    if (e.KeyChar == ',')
+                    {
+                        textBox1.Text = textBox1.Text.TrimEnd();
+                        textBox1.Select(textBox1.TextLength, textBox1.TextLength);
+                        BuildAutoCompleateMenu();
+                    }
                 }
-            }        
+
+            }
+            catch (Exception) { dataWord.CreateTable();return; }
+           
         }
          private void autocompleteMenu_Selected(object sender, AutocompleteMenuNS.SelectedEventArgs e)
         {
