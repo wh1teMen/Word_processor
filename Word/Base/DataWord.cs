@@ -12,25 +12,22 @@ namespace Word.Base
 {
     internal class DataWord
     {
-        public DataWord() { }          
-        private void Command(string pattern)
-        {
-            using (SQLiteConnection connect = new SQLiteConnection($"Data Source=MyDictionaty.db;"))
-            {
-                connect.Open();               
-                SQLiteCommand command_create = new SQLiteCommand(pattern, connect);
-                command_create.ExecuteNonQuery();
-            };
-        }     
+        public DataWord() { }         
+       
         public void CreateTable()
         {
             try
-            {                
-                string SQL_command_create = $"CREATE TABLE  IF NOT EXISTS Dictionary" +
+            {
+                using (SQLiteConnection connect = new SQLiteConnection($"Data Source=MyDictionaty.db;"))
+                {
+                    string SQL_command_create = $"CREATE TABLE  IF NOT EXISTS Dictionary" +
                   $" (id INTEGER PRIMARY KEY   UNIQUE," +
                   $" Word VARCHAR(1,200));";
-                Command(SQL_command_create);
-               
+                    connect.Open();
+                    SQLiteCommand command_create = new SQLiteCommand(SQL_command_create, connect);
+                    command_create.ExecuteNonQuery();
+                };               
+              
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -40,8 +37,15 @@ namespace Word.Base
         {
             try
             {
-                string SQL_command_delete = $"DELETE FROM Dictionary";
-                Command(SQL_command_delete);
+                using (SQLiteConnection connect = new SQLiteConnection($"Data Source=MyDictionaty.db;"))
+                {
+                    string SQL_command_delete = $"DELETE FROM Dictionary";
+                    connect.Open();
+                    SQLiteCommand command = new SQLiteCommand(SQL_command_delete, connect);
+                    command.ExecuteNonQuery();
+                };
+               
+              
                
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -50,14 +54,22 @@ namespace Word.Base
         public void InsertBD(List<string> other)
         {
             try
-            {              
-               
-                foreach (var item in other)
+            {
+                using (SQLiteConnection connect = new SQLiteConnection($"Data Source=MyDictionaty.db;"))
                 {
-                    var SQL_command_insert = $"insert into Dictionary(Word)values(\"{item}\");";
-                    Command(SQL_command_insert);                
+                    string SQL_command_delete = $"DELETE FROM Dictionary";
+                    connect.Open();
                    
-                }            
+
+                    foreach (var item in other)
+                    {
+                        var SQL_command_insert = $"insert into Dictionary(Word)values(\"{item}\");";
+                        SQLiteCommand command = new SQLiteCommand(SQL_command_insert, connect);
+                        command.ExecuteNonQuery();
+
+                    }
+                };
+                         
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 

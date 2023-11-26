@@ -29,11 +29,6 @@ namespace Word
         Filter filter = new Filter();
         string KeyPresValue;
         List<string> tmpListWords = new List<string>();
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-           
-        }
         //Добавление данных в  Меню автозаполнения
         private void BuildAutoCompleateMenu()
         {          
