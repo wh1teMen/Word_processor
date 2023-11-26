@@ -31,7 +31,7 @@ namespace Word
         List<string> tmpListWords = new List<string>();
         private void Form1_Load(object sender, EventArgs e)
         {
-            BuildAutoCompleateMenu();                    
+           // BuildAutoCompleateMenu();                    
         }
         //Добавление данных в  Меню автозаполнения
         private void BuildAutoCompleateMenu()
