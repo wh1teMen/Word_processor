@@ -78,10 +78,10 @@ namespace Word.Base
                     {
                         while (rider.Read())
                         {
-                            result.Add(rider.GetString(0));
+                            result.Add(rider[0].ToString());
                         }
                     }
-
+                    connect.Close();
                 }
             catch(Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 

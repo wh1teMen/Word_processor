@@ -57,6 +57,7 @@ namespace Word
             sortlist.ForEach(x => autocompleteMenu.AddItem(x + " "));           
             tmpListWords.Clear();
         }
+        private bool flagCreate = false;
         private void созданиеСловаряToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -67,7 +68,8 @@ namespace Word
             {
                 var enteredWords_List = textBox1.Text.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).ToList();
                 dataWord.CreateTable();
-                dataWord.InsertBD(filter.InsertWordsToBase(enteredWords_List));                
+                dataWord.InsertBD(filter.InsertWordsToBase(enteredWords_List));
+                flagCreate = true;
             }
 
         }
@@ -96,7 +98,7 @@ namespace Word
             try
             {
                 KeyPresValue += e.KeyChar.ToString();
-                search(KeyPresValue);
+                if (flagCreate == true) { search(KeyPresValue); }                             
                 if (textBox1.TextLength != 0 && CountSpace() == 1)
                 {
                     if (e.KeyChar == '.')
@@ -114,7 +116,7 @@ namespace Word
                 }
 
             }
-            catch (Exception) { dataWord.CreateTable();return; }
+            catch (Exception) { dataWord.CreateTable();return;  }
            
         }
          private void autocompleteMenu_Selected(object sender, AutocompleteMenuNS.SelectedEventArgs e)
