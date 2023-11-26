@@ -1,6 +1,7 @@
 # Текстовый процессор :page_with_curl:
 *(Реализующий автодополнение слов по требованию пользователя)*
-**[Проект.zip]([https://disk.yandex.ru/d/eDCh_bWoEpCJ5g](https://disk.yandex.ru/d/77CfvZeBcMatbA))**
+
+#### Скачать проект: [Проект.zip]([https://disk.yandex.ru/d/eDCh_bWoEpCJ5g](https://disk.yandex.ru/d/77CfvZeBcMatbA))
 ____
 
 ### Функции процессора:
