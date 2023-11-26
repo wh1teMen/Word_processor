@@ -31,8 +31,8 @@ namespace Word
         List<string> tmpListWords = new List<string>();
         private void Form1_Load(object sender, EventArgs e)
         {
+
            
-                           
         }
         //Добавление данных в  Меню автозаполнения
         private void BuildAutoCompleateMenu()
@@ -66,8 +66,9 @@ namespace Word
             }
             if (textBox1.Text != "")
             {
-                var enteredWords_List = textBox1.Text.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).ToList();
                 dataWord.CreateTable();
+                var enteredWords_List = textBox1.Text.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).ToList();               
+                MessageBox.Show("Словарь создан");
                 dataWord.InsertBD(filter.InsertWordsToBase(enteredWords_List));
                 flagCreate = true;
             }

@@ -30,7 +30,7 @@ namespace Word.Base
                   $" (id INTEGER PRIMARY KEY   UNIQUE," +
                   $" Word VARCHAR(1,200));";
                 Command(SQL_command_create);
-                MessageBox.Show("Словарь создан");
+               
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
