@@ -32,7 +32,7 @@ namespace Word
         private void Form1_Load(object sender, EventArgs e)
         {
            
-            BuildAutoCompleateMenu();                    
+                           
         }
         //Добавление данных в  Меню автозаполнения
         private void BuildAutoCompleateMenu()
