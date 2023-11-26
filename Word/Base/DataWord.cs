@@ -68,17 +68,23 @@ namespace Word.Base
             List<string> result = new List<string>();
             using (SQLiteConnection connect = new SQLiteConnection($"Data Source=MyDictionaty.db;"))
             {
-                var SQL_command_read = $"select Word from Dictionary";
-                connect.Open();
-                SQLiteCommand command_read = new SQLiteCommand(SQL_command_read, connect);
-                var rider = command_read.ExecuteReader();
-                if (rider.HasRows)
+                try
                 {
-                    while (rider.Read())
+                    var SQL_command_read = $"select Word from Dictionary";
+                    connect.Open();
+                    SQLiteCommand command_read = new SQLiteCommand(SQL_command_read, connect);
+                    var rider = command_read.ExecuteReader();
+                    if (rider.HasRows)
                     {
-                        result.Add(rider.GetString(0));                        
+                        while (rider.Read())
+                        {
+                            result.Add(rider.GetString(0));
+                        }
                     }
+
                 }
+            catch(Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                
             };          
             return result;
         }
